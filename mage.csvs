@@ -1,0 +1,20 @@
+version 1.2
+@totalColumns 10
+@separator ',' @quoted
+quatity: range(1,1000)
+// english name as denoted by scryfall
+englishName: notEmpty
+// not the mkm short key
+scryfallEditionCode: regex("[0-9a-z]+")
+// scryfall: This card's collector number. Note that collector numbers can contain non-numeric characters, such as letters or ★.
+scryfallCollectorNumber: regex("[0-9]+[a-z★]?")
+// two letter iso code, po=portuguese, tc=traditional chinese
+language: any("en", "fr", "de", "es", "it", "po", "ru", "cn", "jp", "ko", "tc")
+// abbrev for near mint, excellent, good, played, damaged
+condition: any("nm", "ex", "gd", "pl", "dm")
+foil: any("foil", "nonfoil")
+// always a two digit part after the dot
+price: regex("[0-9]{10}\.[0-9]{2}?")
+// a valid currency 3 letter iso lowercase
+currency: any("eur", "usd")
+meta: regex("[^"]*")
